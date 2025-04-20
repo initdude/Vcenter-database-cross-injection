@@ -1,5 +1,5 @@
 # Vcenter-database-cross-injection
-one of the biggest Challenge during our projects was happend when during the Update of vCenter 6.7 to 7.3 and the 8.3 suddenly our upgrade process hit with an error!!!! vcenter could not run drs!!!
+one of the biggest Challenge during our projects was happend during the Update of vCenter 6.7 to 7.3 and the 8.3 suddenly our upgrade process hit with an error!!!! vcenter could not run drs!!!
 upgrade interrupted and everything gone!!! with about 370 Server that managed by vCenter we had just a damaged vcenter appliance that has no DRS and HA!!!!
 
 so we findout that the promble was in the Hosts Esxi version, then we update the hosts esxi to 7.3 then ofcourse the distributed switch version, then we decide to restart the vcenter machine to take effect, and guess what!! even that sick vcenter appliance is gone!!!
