@@ -1,10 +1,6 @@
 # Vcenter-database-cross-injection
-one of the biggest Challenge during our projects was happend during the Update of vCenter 6.7 to 7.3 and the 8.3 suddenly our upgrade process hit with an error!!!! vcenter could not run drs!!!
-upgrade interrupted and everything gone!!! with about 370 Server that managed by vCenter we had just a damaged vcenter appliance that has no DRS and HA!!!!
+One of the biggest challenges during our project occurred while upgrading vCenter from version 6.7 to 7.0 Update 3, and subsequently to 8.0 Update 3. During the upgrade process, we encountered a critical error: vCenter could no longer run Distributed Resource Scheduler (DRS), and both DRS and High Availability (HA) became unavailable. The upgrade was interrupted, leaving us with a severely damaged vCenter appliance. This was a major issue, as our vCenter managed approximately 370 servers.
 
-so we findout that the promble was in the Hosts Esxi version, then we update the hosts esxi to 7.3 then ofcourse the distributed switch version, then we decide to restart the vcenter machine to take effect, and guess what!! even that sick vcenter appliance is gone!!!
-that was a disaster so we try many many ways, but we've got no answer 
-the last way was to dump the vcenter's database through ssh, install a new fresh version of vcenter and then inject the database in it! 
-it was so challenging but finally it works.
-we saved a enterprise environment from a huge downtime.
-here is how.
+After investigation, we identified the root cause: the ESXi hosts were running an incompatible version. To resolve this, we updated the ESXi hosts to version 7.0 Update 3 and upgraded the vSphere Distributed Switch to the corresponding version. Hoping to stabilize the system, we decided to restart the vCenter appliance. Unfortunately, this caused an even bigger problem—the already compromised vCenter appliance became completely inaccessible, resulting in a catastrophic failure.
+
+We explored numerous solutions, but none worked. As a last resort, we accessed the vCenter appliance via SSH to export its database. We then deployed a fresh vCenter appliance and imported the salvaged database into it. This process was extremely challenging but ultimately successful. By restoring the database to a new vCenter instance, we recovered the enterprise environment and prevented significant downtime. Below are the detailed steps we followed to achieve this recovery.
